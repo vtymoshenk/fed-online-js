@@ -2,18 +2,37 @@ console.log(window);
 console.log(document);
 
 window.onload = function () {
-   let bg = document.querySelector('.bg');
-   bg.style.width = '50px';
-   bg.style.height ='50px';
-   bg.style.background='yellow'
+   let text = document.querySelector('.text');
+   let menu=document.querySelector('.menu');
+   text.style.width = '350px';
+   text.style.height ='50px';
+   text.style.background = 'yellow';
+   menu.style.position = 'absolute';
+   menu.style.display = 'none';
 
-   bg.addEventListener('mouseover', function(e){
 
-    this.style.background = 'pink';
+   text.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+
+    menu.style.display = 'block';
+    menu.style.left = e.pageX + 'px';
+    menu.style.top = e.pageY + 'px';
    })
 
-    bg.addEventListener('mouseout', function(e){
-   
-    this.style.background = 'yellow';
+   menu.addEventListener('click', function (e) {
+      let action = e.target.dataset.action;
+
+      if (action === 'left') text.style.textAlign = 'left';
+      if (action === 'right') text.style.textAlign = 'right';
+      if (action === 'center') text.style.textAlign = 'center';
+      if (action === 'hide') text.style.display = 'none';
+
+      menu.style.display = 'none';
    })
+
+   document.addEventListener('click', function () {
+      menu.style.display = 'none';
+   })
+
+ 
 }
