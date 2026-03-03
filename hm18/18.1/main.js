@@ -8,9 +8,9 @@ window.onload = function () {
    let [...radioButtons] = this.document.querySelectorAll('input[name="color"]');
    formEl.addEventListener('change', () => {
       let selectColor = '';
-      for (radiobutton of radioButtons) {
+      for (let radiobutton of radioButtons) {
          if (radiobutton.checked) {
-            selectColor = radioButtons.value;
+            outputRes.style.background = radiobutton.value;
             break;
          }
       }
