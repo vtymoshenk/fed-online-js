@@ -1,0 +1,22 @@
+#Налаштування
+node_modules/
+
+#Окремі файли
+secret.txt
+config.env
+
+#Ігнор всіх файлів
+*.log
+*.temp
+*.zip
+*.rar
+
+#Ігнор всіх файлів  редакторів
+.vscode/
+
+#Ігнор папок
+test/
+
+#DS store ігнор
+.DS_Store
+

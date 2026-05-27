@@ -2,24 +2,21 @@ console.log(window);
 console.log(document);
 
 window.onload = function () {
+new Promise((resolve, reject)=>{
+   resolve(10);
 
-   let javaScript = {
-      strings: "kdsjhdkjhdk",
-      numbers: 34,
-      arr: [1, 2, 3, 4, 3] ,
-      obj:{
-         hi:'this is obj',
-
-      },
-  }
-
-   let a = document.createElement('a');
-   let json = JSON.stringify(javaScript);
-   let file = new Blob([json], { type: "application/json" });
-
-   a.href = URL.createObjectURL(file);
-   a.download = 'data.json';
-   a.click();
+}).then(number=>{
+   console.log(number + 10);
+   return number +10;
+}).then(number=>{
+   console.log(number * 10);
+   return number *10;
+}).then(number=>{
+    console.log(number - 10);
+   return number-10;
+}).catch(error=>{
+   console.log('err',error);
+});
 
    }
 
